@@ -2,7 +2,6 @@ package Client.Worker;
 
 import Client.Client;
 import Model.Message;
-import crypto.AES;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -64,7 +63,7 @@ public class MessageReaderWorker implements Runnable {
                             System.out.println();
                             System.out.println(myMessage.getHeader().getSendFrom() + ": ");
                             try {
-                                System.out.println(AES.decrypt(myMessage.getText()));
+                                System.out.println(myMessage.getText());
                             } catch (Exception e) {
                                 System.err.println(e);
                             }

@@ -2,7 +2,6 @@ package Client;
 
 import Client.Worker.MessageReaderWorker;
 import Model.*;
-import crypto.AES;
 
 import java.io.*;
 import java.net.InetAddress;
@@ -275,15 +274,8 @@ public class Client {
                 logoutDialog();
             }
 
-            try {
-                messageText = AES.encrypt(messageText);
-            } catch (Exception e) {
-                System.err.println(e);
-            }
-
             globalLamportCounter++;
             Message myMessage = new Message(username, chat.getUserB(), globalLamportCounter, messageText);
-
 
             try {
                 serverOut.writeObject(myMessage);
@@ -713,11 +705,11 @@ public class Client {
     private String returnRandomServerHostname() {
         double random = Math.random();
 
-        //if (random < 0.5) {
+        if (random < 0.5) {
             return serverHostname[0];
-        //} else {
-        //    return serverHostname[1];
-        //}
+        } else {
+           return serverHostname[1];
+        }
     }
 
     public void setGlobalLamportCounter(int globalLamportCounter) {

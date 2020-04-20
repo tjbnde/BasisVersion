@@ -17,14 +17,6 @@ public abstract class Worker implements Runnable {
     ObjectInputStream serverIn;
     ObjectOutputStream serverOut;
 
-    /**
-     * Konstrukter der Klasse
-     *
-     * @param dataManager Datenmanager
-     * @param clientOut   Output Stream zum Client
-     * @param clientIn    Input Stream zum Client
-     * @param hostname    Hostname vom anderen Server
-     */
     public Worker(DataManager dataManager, ObjectOutputStream clientOut, ObjectInputStream clientIn, String hostname) {
         this.clientOut = clientOut;
         this.clientIn = clientIn;

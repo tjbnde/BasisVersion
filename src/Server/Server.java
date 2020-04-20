@@ -88,16 +88,6 @@ public class Server {
         }
     }
 
-    public void stopServer(){
-        if(server != null) {
-            try {
-                server.close();
-            } catch (IOException e) {
-                System.err.println(e);
-            }
-        }
-    }
-
     private Thread processElement(Object nextElement) {
         Thread t = null;
         if (nextElement instanceof Login) {
